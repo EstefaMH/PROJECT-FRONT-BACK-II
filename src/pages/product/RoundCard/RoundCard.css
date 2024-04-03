@@ -9,14 +9,16 @@
 }
 
 .round-card-vector{
-    background-image: url(../../../assets/img/WhiteCircle.svg);
-    background-size: cover;
+    background-image: url('../../../assets/WhiteCircle.svg');
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 350px;
+    height: 320px;
+    min-width: 300px;
+
 }
 
 .round-card-vector img{
