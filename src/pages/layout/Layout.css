@@ -1,0 +1,13 @@
+.layout{
+    margin-top: 50px ;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    
+
+    background-image: url('../../assets/BackgroundWhite.webp');
+    background-size: cover;
+}
