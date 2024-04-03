@@ -119,7 +119,8 @@ const products = [
         "name": "BALON FUTBOL PROFESIONAL",
         "features": "features DE BALON PRUEBA",
         "brand": "MOLTEN",
-        "id_category": 1
+        "id_category": 1,
+        "image": 'balon1.png'
     },
     {
         "id": 2535,
@@ -127,10 +128,11 @@ const products = [
         "price_in": "10,000",
         "price_out": "15,000",
         "size": "S/M",
-        "name": "BALON FUTBOL PROFESIONAL",
+        "name": "BALON VOLEYBALL PROFESIONAL",
         "features": "features DE BALON PRUEBA",
         "brand": "MOLTEN",
-        "id_category": 1
+        "id_category": 1, 
+        "image": 'balon2.png'
     },
 ]
 
