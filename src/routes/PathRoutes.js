@@ -14,7 +14,7 @@ export const pathRoutes = {
   adminUpdate:"/update",
   shoppingCart: "/cart",
   products: "/productos",
-  productDetail: "/producto/:id"
+  productDetail: "/producto"
 
 };
 

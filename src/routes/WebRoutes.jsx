@@ -26,7 +26,7 @@ function WebRoutes() {
       <Routes>
         <Route path={pathRoutes.home} Component={HomePage}></Route>
         <Route path={pathRoutes.products} Component={ProductPage}></Route>
-        <Route path={pathRoutes.productDetail} Component={productDetailPage}></Route>
+        <Route path={`${pathRoutes.productDetail}/:id`} Component={productDetailPage}></Route>
         <Route path={pathRoutes.shoppingCart} Component={shoppingCartPage}></Route>
       </Routes>
     </BrowserRouter>
