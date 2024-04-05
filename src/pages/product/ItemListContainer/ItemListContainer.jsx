@@ -1,26 +1,25 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
-import getProducts from "../../../__mocks__/GetProducts";
 import RoundCard from "../RoundCard/RoundCard";
 import { Product } from "../../../models/product";
 import { pathRoutes } from "../../../routes/PathRoutes";
 import { Category } from "@mui/icons-material";
 import './ItemListContainer.css';
 import { List } from "antd";
+import GetProducts from "../../../__mocks__/GetProducts";
 
 
 function ItemListContainer() {
 
-    const [position, setPosition] = useState("both");
-    const [align, setAlign] = useState("center");
+    const [position] = useState("both");
+    const [align] = useState("center");
     const [products, setProducts] = useState([]);
     console.log(products);
 
     async function Products() {
-        const x = await getProducts();
-        console.log(x[0])
-        setProducts(x);
+        const getProducts = await GetProducts();
+        setProducts(getProducts);
     }
 
     useEffect(() => {
@@ -49,7 +48,7 @@ function ItemListContainer() {
                     <List.Item key={i}>
                         <Link
                             className="accesories-cards-link"
-                            to={`${pathRoutes.uniform}/${product.id}`}
+                            to={`${pathRoutes.productDetail}/${product.id}`}
                         >
                             <RoundCard
                                 product={new Product(

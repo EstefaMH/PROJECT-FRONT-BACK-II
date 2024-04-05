@@ -1,13 +1,16 @@
 import Layout from "../layout/Layout";
+import SliderHome from "./components/SliderHome/SliderHome";
 
 export default function HomePage() {
   return (
-   
+
     <Layout>
-      <h1>HomePage</h1>
-      
+      <SliderHome />
+
+
+
     </Layout>
-     
+
   )
 }
 
