@@ -1,20 +1,15 @@
 .details {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .section {
     display: flex;
-
     flex-direction: column;
     justify-content: space-around;
     margin: 20px 0;
-    align-items: center;
-}
-
-
-.image {
-    flex: 1;
+   
 }
 
 .round-card {
@@ -34,8 +29,8 @@
 }
 
 .price {
-    flex: 1;
     display: flex;
+    justify-content: center;
 }
 
 .currency {
@@ -51,17 +46,10 @@
     font-weight: bold;
 }
 
-.size {
-    flex: 1;
-    /* Agrega estilos para la sección de tallas */
-}
 
 .size-cards {
     display: flex;
     flex-wrap: wrap;
-    /* Para que las size cards se envuelvan si no caben en una sola fila */
-    justify-content: center;
-    /* Centra horizontalmente los elementos dentro del contenedor */
     gap: 10px;
 }
 
@@ -69,11 +57,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 45px;
+    min-width: 75px;
     height: fit-content;
     background-color: rgba(220, 217, 217, 0.511);
     border-radius: 10px;
     transition: all .3s;
+}
+
+.card button{
+    background-color: transparent;
+    border: none;
 }
 
 .card:hover {
@@ -89,7 +82,6 @@
 
 .uniform {
     flex: 1;
-    /* Agrega estilos para la sección de uniforme */
 }
 
 .square-cards {
@@ -116,14 +108,15 @@
 }
 
 .section-btns {
-    flex-direction: row;
+   display: flex;
+   justify-content: space-between;
+   align-items: stretch;
 }
 
 .btn {
     color: var(--secondary-color-text);
     background: #ffffff;
     font-family: inherit;
-    padding: 0.6em 1.3em;
     font-weight: 900;
     font-size: 18px;
     border: 3px solid black;
@@ -147,7 +140,6 @@
     color: var(--secondary-color-text);
     background: #ffffff;
     font-family: inherit;
-    padding: 0.6em 1.3em;
     font-weight: 900;
     font-size: 18px;
     border: 3px solid black;
@@ -155,8 +147,8 @@
     box-shadow: 0.1em 0.1em;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
-    display: block;
     margin-top: 20px;
+    width: 100%;
 }
 
 .add-btn:hover {
@@ -171,7 +163,6 @@
 
 
 .quantity {
-    margin: 15px;
     width: 50px;
     background: var(--secondary-color-text);
     font-family: inherit;
@@ -203,6 +194,10 @@
     align-items: center;
 }
 
+.section-image-details {
+    padding: 2%;
+}
+
 @media screen and (width >=770px) {
 
 
@@ -220,24 +215,22 @@
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+        width: 100%;
+       
     }
 
     .section-image-tallas {
-        flex: 1;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        margin: 20px 0;
-        /* Estilo para cada columna */
+        align-items: center;
+        flex-basis: 40%;
     }
 
     .section-image-details {
-        flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         margin: 20px 0;
-        /* Estilo para cada columna */
     }
 
 
