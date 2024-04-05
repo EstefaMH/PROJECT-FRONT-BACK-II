@@ -1,0 +1,244 @@
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+.section {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 20px 0;
+    align-items: center;
+}
+
+
+.image {
+    flex: 1;
+}
+
+.round-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 320px;
+}
+
+.round-card-vector {
+    background-image: url('../../../../assets/WhiteCircle.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.price {
+    flex: 1;
+    display: flex;
+}
+
+.currency {
+    color: var(--secondary-color-text);
+    font-size: 32px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.amount {
+    color: black;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.size {
+    flex: 1;
+    /* Agrega estilos para la sección de tallas */
+}
+
+.size-cards {
+    display: flex;
+    flex-wrap: wrap;
+    /* Para que las size cards se envuelvan si no caben en una sola fila */
+    justify-content: center;
+    /* Centra horizontalmente los elementos dentro del contenedor */
+    gap: 10px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 45px;
+    height: fit-content;
+    background-color: rgba(220, 217, 217, 0.511);
+    border-radius: 10px;
+    transition: all .3s;
+}
+
+.card:hover {
+    transform: scale(0.98);
+    box-shadow: 0px 0px 30px 1px rgba(0, 255, 251, 0.448);
+}
+
+.section-guia-tallas {
+    color: #000;
+    align-items: center;
+    font-weight: 600;
+}
+
+.uniform {
+    flex: 1;
+    /* Agrega estilos para la sección de uniforme */
+}
+
+.square-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.square-card {
+    position: relative;
+    background-color: rgba(220, 217, 217, 0.511);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+    padding-top: 2%;
+    border-radius: 15px 15px 25px 25px;
+
+}
+
+
+.square-card img {
+    width: 100%;
+}
+
+.section-btns {
+    flex-direction: row;
+}
+
+.btn {
+    color: var(--secondary-color-text);
+    background: #ffffff;
+    font-family: inherit;
+    padding: 0.6em 1.3em;
+    font-weight: 900;
+    font-size: 18px;
+    border: 3px solid black;
+    border-radius: 0.4em;
+    box-shadow: 0.1em 0.1em;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em;
+}
+
+.btn:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em;
+}
+
+.add-btn {
+    color: var(--secondary-color-text);
+    background: #ffffff;
+    font-family: inherit;
+    padding: 0.6em 1.3em;
+    font-weight: 900;
+    font-size: 18px;
+    border: 3px solid black;
+    border-radius: 0.4em;
+    box-shadow: 0.1em 0.1em;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: block;
+    margin-top: 20px;
+}
+
+.add-btn:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em;
+}
+
+.add-btn:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em;
+}
+
+
+.quantity {
+    margin: 15px;
+    width: 50px;
+    background: var(--secondary-color-text);
+    font-family: inherit;
+    padding: 0.6em 1.3em;
+    font-weight: 900;
+    font-size: 18px;
+    border: 3px solid black;
+    border-radius: 0.4em;
+    box-shadow: 0.1em 0.1em;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+}
+
+.quantity:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em;
+}
+
+.quantity:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em;
+}
+
+.total-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media screen and (width >=770px) {
+
+
+    .square-cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+}
+
+@media screen and (width >=1024px) {
+    .details {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .section-image-tallas {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 20px 0;
+        /* Estilo para cada columna */
+    }
+
+    .section-image-details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 20px 0;
+        /* Estilo para cada columna */
+    }
+
+
+}
