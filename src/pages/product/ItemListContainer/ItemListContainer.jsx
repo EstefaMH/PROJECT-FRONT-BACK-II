@@ -29,6 +29,7 @@ function ItemListContainer() {
 
     return (
         <section className="accesories-cards">
+            
             <List
                 pagination={{
                     position,

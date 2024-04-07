@@ -49,3 +49,29 @@
 }
 
 
+
+
+
+.cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  text-align: center;
+  background-color: white;
+}
+
+.cont h1{
+ 
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-repeat: no-repeat;
+  background-size:cover;
+  background: url('../../../../assets/sports.jpeg');
+  -webkit-background-clip:text;
+  background-attachment: fixed;
+    font-size: 25rem;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bolder;
+}
+
