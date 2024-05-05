@@ -1,8 +1,14 @@
+import Layout from "../layout/Layout";
+import CartItemsList from "./components/CartItemsList";
 
 
 function shoppingCartPage() {
+
   return (
-    <div>shoppingCart</div>
+    <Layout>
+      <div>shoppingCart</div>
+      <CartItemsList />
+    </Layout>
   )
 }
 
