@@ -64,6 +64,7 @@ Este proyecto utiliza Firestore de Firebase como base de datos en la nube. Para 
 1. Crea un proyecto en Firebase desde el [Firebase Console](https://console.firebase.google.com/).
 2. Obtener las credenciales para conectarse desde un sitio web 
 3. Crea un archivo `.env` en la raíz de tu proyecto y establece las variables de entorno con tus credenciales de Firebase de la siguiente manera:
+    ```bash 
    VITE_API_KEY_FIREBASE= TuAPIKey
    VITE_AUTH_DOMAIN= TuDominioDeAuth
    VITE_PROJECT_ID= TuIDDeProyecto
@@ -71,6 +72,7 @@ Este proyecto utiliza Firestore de Firebase como base de datos en la nube. Para 
    VITE_MESSAGING_SENDER_ID= TuIDDeRemitenteDeMensajes
    VITE_APP_ID= TuIDDeApp
    VITE_MEASUREMENT_ID= TuIDDeMedición
+    ```
 
 
 
