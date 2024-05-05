@@ -1,15 +1,21 @@
-import { Fab, IconButton } from "@mui/material"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { pathRoutes } from "../../routes/PathRoutes";
-import { Link } from "react-router-dom";
-import "./ShoppingCartButton.css"
+import { IconButton } from "@mui/material";
 import Badge from '@mui/material/Badge';
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from '../../contexts/Contexts';
+import { pathRoutes } from "../../routes/PathRoutes";
+import "./ShoppingCartButton.css";
+
 
 function ShoppingCartButton() {
+
+    const { cart } = useContext(CartContext)
+
     return (
         <Link className="shopping-cart-button" to={pathRoutes.shoppingCart}>
             <IconButton aria-label="cart">
-                <Badge badgeContent={1} color="primary">
+                <Badge badgeContent={cart} color="primary">
                     <ShoppingCartIcon color="action" />
                 </Badge>
             </IconButton>
