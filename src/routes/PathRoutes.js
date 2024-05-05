@@ -14,13 +14,15 @@ export const pathRoutes = {
   adminUpdate:"/update",
   shoppingCart: "/cart",
   products: "/productos",
-  productDetail: "/producto"
+  productDetail: "/producto",
+  checkout: "/checkout"
 
 };
 
 export const pages = [
     ["Inicio", pathRoutes.home], 
     ["Tienda", pathRoutes.products],
+    ["Personalizados", pathRoutes.custom]
 ];
 
 export const apiWhatsApp = {
