@@ -1,21 +1,21 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay , EffectCoverflow, Pagination } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
+import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import './SliderHome.css';
-import Baloncesto from '../../../../assets/sports.jpeg';
+import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import Uniforme from '../../../../assets/futbol.jpg';
+import Gym from '../../../../assets/gym.jpg';
 import KmilaHombre from '../../../../assets/kamilaMen.jpg';
 import KmilaMujer from '../../../../assets/mujer.jpg';
-import Uniforme from '../../../../assets/Uniformes.png';
+import Baloncesto from '../../../../assets/sports.jpeg';
+import './SliderHome.css';
 
 function SliderHome() {
 
-  function f(){
+  function perView(){
     return 3;
   }
 
@@ -23,7 +23,7 @@ function SliderHome() {
     <Swiper
       effect="coverflow"
       grabCursor={true}
-      slidesPerView={f()}
+      slidesPerView={perView()}
       loop={true}
       coverflowEffect={{
         rotate: 50,
@@ -53,6 +53,9 @@ function SliderHome() {
       </SwiperSlide>
       <SwiperSlide className="swiper-slide swiper-slide4">
         <img src={Uniforme} alt="Slide 4" />
+      </SwiperSlide>
+      <SwiperSlide className="swiper-slide swiper-slide5">
+        <img src={Gym} alt="Slide 5" />
       </SwiperSlide>
     </Swiper>
   );

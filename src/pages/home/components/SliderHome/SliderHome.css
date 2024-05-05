@@ -9,30 +9,31 @@
 
 }
 
-.swiper-slide:hover{
-    position: relative;
-    transform: scaleX(1.2); 
-    z-index: 1;
+.swiper-slide:hover {
+  position: relative;
+  transform: scaleX(1.2);
+  z-index: 1;
 }
 
-.swiper-slide{
-    display: flex;
-    transition: transform 0.3s ease, z-index 0s linear 0.3s; 
-    transform-origin: center;
+.swiper-slide {
+  display: flex;
+  transition: transform 0.3s ease, z-index 0s linear 0.3s;
+  transform-origin: center;
 }
 
-.swiper-slide2{
-    background-image: url('../../../../assets/mujer.jpg');
+.swiper-slide2 {
+  background-image: url('../../../../assets/mujer.jpg');
 }
 
-.swiper-slide1{
-    background-image: url('../../../../assets/kamilaMen.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+.swiper-slide1 {
+  background-image: url('../../../../assets/kamilaMen.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-.swiper-slide1,.swiper-slide3 {
+.swiper-slide1,
+.swiper-slide3 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,7 +53,7 @@
 
 
 
-.cont{
+.cont {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,17 +62,28 @@
   background-color: white;
 }
 
-.cont h1{
- 
+.cont h1 {
+
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   background: url('../../../../assets/sports.jpeg');
-  -webkit-background-clip:text;
+  -webkit-background-clip: text;
   background-attachment: fixed;
-    font-size: 25rem;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bolder;
+  font-size: 4rem;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
 }
 
+@media screen and (min-width: 700px) {
+  .cont h1 {
+    font-size: 10rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .cont h1 {
+    font-size: 18rem;
+  }
+}
