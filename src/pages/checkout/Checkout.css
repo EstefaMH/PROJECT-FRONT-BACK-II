@@ -1,0 +1,22 @@
+.checkout-description{
+    width: 90%;
+    margin: '0 auto';
+}
+
+
+
+.checkout-table .ant-table-cell {
+    width: 90%;
+    display: block;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.checkout-img-mobile{
+    width: 50%;
+}
+
+@media screen and (min-width: 700px) {
+    
+}
