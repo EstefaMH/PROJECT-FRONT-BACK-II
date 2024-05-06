@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from "react";
 import { CartContext, CartListContext } from '../contexts/Contexts';
-import { Cart } from '../models/cart';
 
 
 function ShoppingCartContexts({ children }) {
@@ -11,7 +10,7 @@ function ShoppingCartContexts({ children }) {
     
     useEffect(() => {
        const storedCartList = localStorage.getItem('cartListStorage');
-        console.log(storedCartList)
+       
         if (storedCartList) {
             setCartList(JSON.parse(storedCartList));
         }
