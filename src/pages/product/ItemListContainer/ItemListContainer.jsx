@@ -16,7 +16,7 @@ function ItemListContainer() {
     const productInstance = new Product();
 
 
-   const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true)
     const [position] = useState("both");
     const [align] = useState("center");
     const [products, setProducts] = useState([]);
@@ -35,7 +35,7 @@ function ItemListContainer() {
 
     return (
         <section className="accesories-cards">
-            {loading ?  <CircularProgress /> : 
+            {loading ? <CircularProgress /> :
                 <List
                     pagination={{
                         position,
@@ -43,7 +43,7 @@ function ItemListContainer() {
                         defaultPageSize: 9
                     }}
                     grid={{
-                        gutter: [3,9],
+                        gutter: [3, 9],
                         xs: 1,
                         sm: 2,
                         md: 2,
