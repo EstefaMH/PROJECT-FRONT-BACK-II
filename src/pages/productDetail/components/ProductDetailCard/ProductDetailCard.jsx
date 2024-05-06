@@ -1,29 +1,37 @@
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { CartListContext } from '../../../../contexts/Contexts';
 import ProductsService from '../../../../services/products.service';
+import { pathRoutes } from '../../../../routes/PathRoutes';
 
 
 function ProductDetailCard() {
 
     let productsService = new ProductsService();
-    
+
     const { setCartList } = useContext(CartListContext)
 
 
     const { id } = useParams();
+    let navigate = useNavigate();
+
 
     const [product, setProduct] = useState([]);
     const [quantity, setQuantity] = useState(1);
-    
+
     useEffect(() => {
         getProduct()
     }, [id]);
 
 
     async function getProduct() {
-        const product = await productsService.getProductById(id);
-        setProduct(product);
+        try {
+            const productDoc = await productsService.getProductById(id);
+            setProduct(productDoc);
+        } catch (error) {
+            alert("Error al obtener el producto: " + error.message);
+            navigate(pathRoutes.products);
+        }
     }
 
 
@@ -36,8 +44,8 @@ function ProductDetailCard() {
     function handleSubmitCart(e) {
 
         e.preventDefault();
-        
-        setCartList(cartList => [...cartList,{
+
+        setCartList(cartList => [...cartList, {
             id: id,
             ref: product.ref,
             price_out: product.price_out,
@@ -52,13 +60,24 @@ function ProductDetailCard() {
 
 
     return (
-
         <section className="details">
             <section className='section-details-name'>
-                <p>{product.brand}</p>
-                <h2>{product.features}</h2>
+                <h1>{product.features}</h1>
             </section>
             <div className="section-image-tallas">
+
+                <div className="size description-card">
+                    <h2>Ref. {product.ref} </h2>
+                    <div className="description-brand">
+                        <p className="description-brand-title">Marca </p>
+                        <p>{product.brand}</p>
+                    </div>
+                    <div className="price">
+                        <span className="price-out">$ </span>
+                        <span className="price-out ">{product.price_out}</span>
+                    </div>
+                </div>
+
 
                 <article className='card-details-img' >
                     <img src={product.image} alt="Product Image" />
@@ -67,14 +86,8 @@ function ProductDetailCard() {
 
             <div className="section-image-details">
                 <div className="section-product">
-                    <div className="size">
-                        <h3>Marca </h3>
-                        <p>{product.brand}</p>
-                    </div>
-                    <div className="price">
-                        <span className="currency">$</span>
-                        <span className="amount">{product.price_out}</span>
-                    </div>
+
+
                     <div className="size">
                         {product.size && product.size.length > 0 && <h3>Tallas </h3>}
                         <div className="size-cards">
