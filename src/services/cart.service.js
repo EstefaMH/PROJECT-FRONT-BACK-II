@@ -4,17 +4,15 @@ import { Cart } from "../models/cart";
 import { User } from "../models/user";
 
 
-
-
 class CartService {
 
     cart = new Cart();
     user = new User();
-    
+
 
     /**
-     * Obtener todos los documentos almacenados en la coleccion de accesorios 
-     * @returns Lista de objetos con los productos 
+     * Obtener todos los documentos almacenados en la coleccion Cart
+     * @returns { dataList } Lista de objetos con los productos 
     /** */
     async getCart() {
         const dataList = [];
@@ -31,12 +29,12 @@ class CartService {
         return dataList;
     }
 
+
     /**
      * 
-     * @param {*} cartId 
-     * @returns 
+     * @param { String } cartId 
+     * @returns {snapshot.data()}  documento correspondiente al Id 
     /** */
-
     async getCartById(cartId) {
         console.log(cartId)
 
@@ -54,29 +52,26 @@ class CartService {
         return snapshot.data();
     }
 
+    /**
+   * Añadir un producto al carrito de compras
+   * @param {Cart[]} cartItem 
+   * @param {User} user 
+   * @returns { id } id del documento creado 
+   */
+    async sendCart(cartItems, user) {
+        const docRef = await addDoc(collection(db, "Cart"), { cart: cartItems, user: this.user.toFirestore(user) });
+        console.log("Document written with ID: ", docRef.id);
+        return docRef.id;
+    }
+
 
     /**
      * Añadir un producto al carrito de compras
      * @param {Cart} cartItem 
      * @param {User} user 
-     */
-
+    */
     async addItemCart(cartItem) {
         this.cart.pushToCartList(cartItem);
-        console.log(this.cart.cartList)
-        
-    }
-
-    /**
-   * Añadir un producto al carrito de compras
-   * @param {Cart[]} cartItem 
-   * @param {User} user 
-   * @returns id del documento creado 
-   */
-    async sendCart(cartItems, user) {
-        const docRef = await addDoc(collection(db, "Cart"), { cart: cartItems , user: this.user.toFirestore(user) });
-        console.log("Document written with ID: ", docRef.id);
-        return docRef.id;
     }
 
 
