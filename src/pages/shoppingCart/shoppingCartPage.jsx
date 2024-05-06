@@ -6,7 +6,7 @@ function shoppingCartPage() {
 
   return (
     <Layout>
-      <div>shoppingCart</div>
+      <h1>Carrito de Compras</h1>
       <CartItemsList />
     </Layout>
   )

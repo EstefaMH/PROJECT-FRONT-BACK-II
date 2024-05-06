@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-//import { useHistory, Link } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Button, IconButton, TextField } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
@@ -9,20 +8,20 @@ import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
+import { Modal } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { CartListContext } from "../../../contexts/Contexts";
 import { pathRoutes } from "../../../routes/PathRoutes";
 import CartService from "../../../services/cart.service";
-import ModalUserForm from "./ModalUserForm";
-import { Modal } from "antd";
+import "../shoppingCart.css"
 
 function CartItemsList() {
   const navigate = useNavigate();
 
   let cartService = new CartService();
 
-
   const { cartList, setCartList } = useContext(CartListContext);
+  console.log(cartList)
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -42,7 +41,7 @@ function CartItemsList() {
     }));
   };
 
- 
+
   function handleDeleteItem(itemId) {
     const deleteItem = cartList.filter((product) => product.id !== itemId);
     setCartList(deleteItem);
@@ -57,8 +56,7 @@ function CartItemsList() {
     localStorage.clear()
 
     navigate(`${pathRoutes.checkout}/${sendId}`);
-    
-    
+
   }
 
   return (
@@ -77,10 +75,15 @@ function CartItemsList() {
                     secondary={
                       <React.Fragment>
                         <Typography sx={{ display: "inline" }} component="span" variant="body2" color="text.primary">
-                          Total:
+                          Cantidad:    {item.quantity}
                         </Typography>
-                        {item.total}
+
+                        <br />
+                        <Typography sx={{ display: "inline" }} component="span" variant="body2" color="text.primary">
+                          Total:   {item.total}
+                        </Typography>
                       </React.Fragment>
+
                     }
                   />
                 </Link>
@@ -96,11 +99,25 @@ function CartItemsList() {
         })}
       </List>
 
-      <div>
-        <Button disabled={cartList.length === 0} onClick={handleOpen}>
+
+      <section className="button-buy">
+
+        <Button
+          style={{
+            width: '100%',
+            backgroundColor: cartList.length === 0 ? 'grey' : '#1976D2',
+            color: 'white',
+            padding: '1.5%',
+            fontWeight: '800',
+          }}
+          disabled={cartList.length === 0}
+          onClick={handleOpen}
+        >
           Comprar
         </Button>
-         <Modal
+      </section>
+      <div>
+        <Modal
           open={open}
           onCancel={handleClose}
           title="Formulario de Usuario"
@@ -140,7 +157,7 @@ function CartItemsList() {
               Enviar
             </Button>
           </form>
-        </Modal> 
+        </Modal>
         {/*{open && <ModalUserForm open={open} handleClose={handleClose} handleSubmit={handleSubmit} />}*/}
       </div>
     </>
