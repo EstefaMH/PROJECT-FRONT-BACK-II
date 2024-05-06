@@ -21,7 +21,7 @@ function CartItemsList() {
   let cartService = new CartService();
 
   const { cartList, setCartList } = useContext(CartListContext);
-  console.log(cartList)
+
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);

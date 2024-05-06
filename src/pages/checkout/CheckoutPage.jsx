@@ -87,12 +87,9 @@ function CheckoutPage() {
 
 
     async function getCheckout() {
-        console.log(id);
 
-        let a = await cartService.getCartById(id);
-        console.log(a)
-        console.log(a.user.name)
-        setCheckoutItems({ user: a.user, cart: a.cart })
+        let cartDoc = await cartService.getCartById(id);
+        setCheckoutItems({ user: cartDoc.user, cart: cartDoc.cart })
     }
 
     useEffect(() => {
