@@ -1,13 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import WebRoutes from './routes/WebRoutes'
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import WebRoutes from './routes/WebRoutes';
 
-import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { doc, getDoc, getFirestore } from "firebase/firestore";
-import { collection, addDoc } from "firebase/firestore";
-import { query, where, getDocs } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 
 
@@ -26,10 +23,6 @@ import { query, where, getDocs } from "firebase/firestore";
 export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 export const db = getFirestore(app);
-console.log(analytics, db);
-
-
-
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
