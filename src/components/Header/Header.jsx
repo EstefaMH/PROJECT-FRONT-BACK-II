@@ -64,11 +64,13 @@ function Header(props) {
       </Typography>
       <Divider />
       <List>
-        {pages.map((item) => (
+        {pages.map((item, index) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item[0]} />
-            </ListItemButton>
+            <Link key={index} to={item[1]} >
+              <ListItemButton sx={{ textAlign: 'center' }}>
+                <ListItemText primary={item[0]} />
+              </ListItemButton>
+            </Link>
           </ListItem>
         ))}
       </List>
@@ -100,8 +102,8 @@ function Header(props) {
             NayaSport
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {pages.map((item , index) => (
-              <Link  key={index} to={item[1]} >
+            {pages.map((item, index) => (
+              <Link key={index} to={item[1]} >
                 <Button key={item} sx={{ color: '#fff' }}>
                   {item[0]}
                 </Button>
@@ -146,7 +148,7 @@ function Header(props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, 
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
