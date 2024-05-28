@@ -10,7 +10,8 @@ import "./ShoppingCartButton.css";
 
 function ShoppingCartButton() {
 
-    const { cart } = useContext(CartContext)
+    const { cart } = useContext(CartContext) 
+    console.log(cart)
 
     return (
         <Link className="shopping-cart-button" to={pathRoutes.shoppingCart}>

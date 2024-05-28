@@ -10,7 +10,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 import { Modal } from "antd";
 import { Link, useNavigate } from "react-router-dom";
-import { CartListContext } from "../../../contexts/Contexts";
+import { CartListContext, CartContext } from "../../../contexts/Contexts";
 import { pathRoutes } from "../../../routes/PathRoutes";
 import CartService from "../../../services/cart.service";
 import "../shoppingCart.css"
@@ -21,6 +21,7 @@ function CartItemsList() {
   let cartService = new CartService();
 
   const { cartList, setCartList } = useContext(CartListContext);
+  const { setCart } = useContext(CartContext);
 
 
   const [open, setOpen] = useState(false);
@@ -42,9 +43,10 @@ function CartItemsList() {
   };
 
 
-  function handleDeleteItem(itemId) {
+  function handleDeleteItem(itemId, itemQuantity) {
     const deleteItem = cartList.filter((product) => product.id !== itemId);
     setCartList(deleteItem);
+    setCart(prevCart => prevCart  - itemQuantity )
   }
 
   async function handleSubmit(e) {
@@ -88,7 +90,7 @@ function CartItemsList() {
                   />
                 </Link>
                 <div style={{ marginLeft: "auto" }}>
-                  <IconButton onClick={() => handleDeleteItem(item.id)}>
+                  <IconButton onClick={() => handleDeleteItem(item.id, item.quantity)}>
                     <DeleteIcon />
                   </IconButton>
                 </div>

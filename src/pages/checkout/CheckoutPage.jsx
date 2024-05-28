@@ -65,6 +65,12 @@ function CheckoutPage() {
             children: currentDate.toDateString(),
         },
         {
+            key: '5',
+            span: 1,
+            label: 'Id de compra',
+            children: id,
+        },
+        {
             key: '1',
             span: 2,
             label: 'Nombre',

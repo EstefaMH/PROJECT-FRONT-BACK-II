@@ -5,6 +5,7 @@ import ProductPage from "../pages/product/ProductPage";
 import productDetailPage from "../pages/productDetail/ProductDetailPage";
 import shoppingCartPage from "../pages/shoppingCart/shoppingCartPage";
 import CheckoutPage from "../pages/checkout/CheckoutPage";
+import customPage from "../pages/custom/customPage";
 
 
 function WebRoutes() {
@@ -16,6 +17,7 @@ function WebRoutes() {
         <Route path={`${pathRoutes.productDetail}/:id`} Component={productDetailPage}></Route>
         <Route path={pathRoutes.shoppingCart} Component={shoppingCartPage}></Route>
         <Route path={`${pathRoutes.checkout}/:id`} Component={CheckoutPage}></Route>
+        <Route path={pathRoutes.custom} Component={customPage}></Route>
       </Routes>
     </BrowserRouter>
   );

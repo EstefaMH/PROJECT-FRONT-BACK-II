@@ -6,20 +6,23 @@ import { CartContext, CartListContext } from '../contexts/Contexts';
 function ShoppingCartContexts({ children }) {
     const [cart, setCart] = useState(0);
     const [cartList, setCartList] = useState([]);
+    console.log(cart)
 
     
     useEffect(() => {
        const storedCartList = localStorage.getItem('cartListStorage');
-       
+       const storedCart = localStorage.getItem('cartStorage');
+       console.log(storedCartList)
         if (storedCartList) {
             setCartList(JSON.parse(storedCartList));
+            setCart(parseInt(storedCart));
         }
     }, []);
 
     useEffect(() => {
         localStorage.setItem('cartListStorage', JSON.stringify(cartList));
-        setCart(cartList.length)
-    }, [cartList]);
+        localStorage.setItem('cartStorage',cart)
+    }, [cartList, cart]);
 
 
     return (
