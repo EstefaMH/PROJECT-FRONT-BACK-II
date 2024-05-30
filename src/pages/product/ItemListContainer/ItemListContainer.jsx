@@ -2,7 +2,7 @@
 import { CircularProgress } from "@mui/material";
 import { List } from "antd";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Product } from "../../../models/product";
 import { pathRoutes } from "../../../routes/PathRoutes";
 import ProductsService from "../../../services/products.service";
@@ -15,6 +15,8 @@ function ItemListContainer() {
     const productsService = new ProductsService();
     const productInstance = new Product();
 
+    const { id } = useParams();
+    console.log(id)
 
     const [loading, setLoading] = useState(true)
     const [position] = useState("both");
@@ -27,9 +29,24 @@ function ItemListContainer() {
         setLoading(false)
     }
 
+    async function getProductsListFilter() {
+        const data = await productsService.getProductsFilter(id);
+        console.log(data)
+        setProducts(data)
+        setLoading(false)
+    }
+
     useEffect(() => {
         getProductsList()
     }, []);
+
+    useEffect(() => {
+        id != undefined ?
+        getProductsListFilter()
+        :
+        getProductsList()
+    }, [id])
+    
 
 
 
@@ -49,7 +66,7 @@ function ItemListContainer() {
                         md: 2,
                         lg: 3,
                         xl: 3,
-                        xxl: 4,
+                        xxl: 3,
                     }}
                     dataSource={products}
                     renderItem={(product, i) => (

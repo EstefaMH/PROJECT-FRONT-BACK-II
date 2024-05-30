@@ -1,22 +1,49 @@
 import { useState } from 'react';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
+import './CategoriesMenu.css'
+import { SportsSoccer } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+import { pathRoutes } from '../../../routes/PathRoutes';
+
+
 const items = [
   {
-    label: 'Navigation One',
+    label: 'Accesorios',
     key: 'mail',
-    icon: <MailOutlined />,
+    icon: <SportsSoccer />,
+    children: [
+      {
+        type: 'group',
+        label: 'Deportes',
+        children: [
+          {
+            label: (<Link to={`${pathRoutes.products}/16`}>Balon mano</Link>),
+            key: '16',
+          },
+          {
+            label:  (<Link to={`${pathRoutes.products}/12`}>Futbol</Link>),
+            key: '12',
+          },
+          {
+            label:  (<Link to={`${pathRoutes.products}/14`}>Voleibol</Link>),
+            key: '14',
+          },
+        ],
+      }
+    ]
   },
   {
-    label: 'Navigation Two',
+    label: 'Ropa deportiva (en construcción)',
     key: 'app',
     icon: <AppstoreOutlined />,
     disabled: true,
   },
   {
-    label: 'Navigation Three - Submenu',
+    label: 'Fitness (en construcción) ',
     key: 'SubMenu',
     icon: <SettingOutlined />,
+    disabled: true,
     children: [
       {
         type: 'group',
@@ -32,30 +59,9 @@ const items = [
           },
         ],
       },
-      {
-        type: 'group',
-        label: 'Item 2',
-        children: [
-          {
-            label: 'Option 3',
-            key: 'setting:3',
-          },
-          {
-            label: 'Option 4',
-            key: 'setting:4',
-          },
-        ],
-      },
     ],
   },
-  {
-    key: 'alipay',
-    label: (
-      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-        Navigation Four - Link
-      </a>
-    ),
-  },
+ 
 ];
 const CategoriesMenu = () => {
   const [current, setCurrent] = useState('mail');
@@ -63,6 +69,12 @@ const CategoriesMenu = () => {
     console.log('click ', e);
     setCurrent(e.key);
   };
-  return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
+  return (
+    <div className="menu-container">
+      <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
+    </div>
+  )
+
+
 };
 export default CategoriesMenu;
