@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs, query } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
 import { db } from "../main";
 import { Product } from "../models/product";
 
@@ -16,6 +16,23 @@ class ProductsService {
         const dataList = [];
 
         const request = query(collection(db, "Accesorios"));
+
+        const querySnapshot = await getDocs(request);
+        querySnapshot.forEach((doc) => {
+            dataList.push({ id: doc.id, ...doc.data() });
+        })
+
+        return dataList;
+    }
+
+    /**
+    * Obtener los documentos almacenados en la coleccion de accesorios correspondientes a la categoria seleccionada 
+    * @returns Lista de objetos con los productos 
+    /** */
+    async getProductsFilter(idCategoria) {
+        const dataList = [];
+
+        const request = query(collection(db, "Accesorios"), where("Categoria", "==" , parseInt(idCategoria)));
 
         const querySnapshot = await getDocs(request);
         querySnapshot.forEach((doc) => {
