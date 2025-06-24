@@ -2,7 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { CartContext, CartListContext } from '../../../../contexts/Contexts';
 import { pathRoutes } from '../../../../routes/PathRoutes';
-import ProductsService from '../../../../services/products.service';
+import ProductsService from '../../../../services/firebase/products.service';
+
 
 function ProductDetailCard() {
 

@@ -1,6 +1,8 @@
 import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
-import { db } from "../main";
-import { Product } from "../models/product";
+
+
+import { db } from "../../main";
+import { Product } from "../../models/product";
 
 
 

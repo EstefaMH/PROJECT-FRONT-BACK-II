@@ -1,7 +1,7 @@
 import { addDoc, collection, doc, getDoc, getDocs, query } from "firebase/firestore";
-import { db } from "../main";
-import { Cart } from "../models/cart";
-import { User } from "../models/user";
+import { db } from "../../main";
+import { Cart } from "../../models/cart";
+import { User } from "../../models/user";
 
 
 class CartService {

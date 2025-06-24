@@ -4,7 +4,6 @@ import { pages } from "../../routes/PathRoutes";
 
 import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
@@ -14,18 +13,15 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
-import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { Link } from "react-router-dom";
 
-const settings = ['Profile', 'Account', 'Dashboard', 'NayaSportut'];
+//const settings = ['Profile', 'Account', 'Dashboard', 'NayaSportut'];
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
+//const navItems = ['Home', 'About', 'Contact'];
 
 
 function Header(props) {
@@ -35,10 +31,10 @@ function Header(props) {
 
 
 
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  //const [anchorElNav, setAnchorElNav] = React.useState(null);
+ // const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
+  /*const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
@@ -51,7 +47,7 @@ function Header(props) {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
-  };
+  };*/
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -110,7 +106,7 @@ function Header(props) {
               </Link>
             ))}
           </Box>
-          <Box>
+          {/*<Box>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -138,7 +134,7 @@ function Header(props) {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box>*/}
         </Toolbar>
       </AppBar>
       <nav>

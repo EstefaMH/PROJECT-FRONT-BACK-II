@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import { Product, productPropType } from '../models/product'
 
 function ProductsAdapter({ id, ref, price_in, price_out, size, name, features, brand, category }) {

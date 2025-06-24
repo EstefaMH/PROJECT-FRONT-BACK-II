@@ -12,8 +12,9 @@ import { Modal } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { CartListContext, CartContext } from "../../../contexts/Contexts";
 import { pathRoutes } from "../../../routes/PathRoutes";
-import CartService from "../../../services/cart.service";
+
 import "../shoppingCart.css"
+import CartService from "../../../services/firebase/cart.service";
 
 function CartItemsList() {
   const navigate = useNavigate();

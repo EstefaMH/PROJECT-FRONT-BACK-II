@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Product } from "../../../models/product";
 import { pathRoutes } from "../../../routes/PathRoutes";
-import ProductsService from "../../../services/products.service";
+
 import RoundCard from "../RoundCard/RoundCard";
 import './ItemListContainer.css';
+import ProductsService from "../../../services/firebase/products.service";
 
 
 function ItemListContainer() {

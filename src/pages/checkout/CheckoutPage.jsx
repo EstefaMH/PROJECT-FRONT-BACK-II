@@ -2,9 +2,10 @@ import { Collapse, Descriptions, Table } from "antd";
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import CartService from "../../services/cart.service";
+
 import Layout from "../layout/Layout";
 import './Checkout.css';
+import CartService from "../../services/firebase/cart.service";
 
 const { Panel } = Collapse;
 

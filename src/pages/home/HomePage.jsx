@@ -5,7 +5,7 @@ import './components/SliderHome/SliderHome.css';
 export default function HomePage() {
   return (
     <Layout>
-      <section className="cont">
+      <section className="container">
           <h1>NayaSport</h1>
       </section>
       <SliderHome />
