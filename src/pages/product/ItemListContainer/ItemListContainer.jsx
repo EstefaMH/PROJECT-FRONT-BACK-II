@@ -6,14 +6,14 @@ import { Link, useParams } from "react-router-dom";
 import { Product } from "../../../models/product";
 import { pathRoutes } from "../../../routes/PathRoutes";
 
+import ProductService from "../../../services/mongo/productService";
 import RoundCard from "../RoundCard/RoundCard";
 import './ItemListContainer.css';
-import ProductsService from "../../../services/firebase/products.service";
 
 
 function ItemListContainer() {
 
-    const productsService = new ProductsService();
+   // const productsService = new ProductsService();
     const productInstance = new Product();
 
     const { id } = useParams();
@@ -25,28 +25,31 @@ function ItemListContainer() {
     const [products, setProducts] = useState([]);
 
     async function getProductsList() {
-        const data = await productsService.getProducts();
+        //const data = await productsService.getProducts();
+        const productService = new ProductService()
+        const data = await productService.getAll();
+        console.log("res data", data)
         setProducts(data)
         setLoading(false)
     }
 
-    async function getProductsListFilter() {
+    /*async function getProductsListFilter() {
         const data = await productsService.getProductsFilter(id);
         console.log(data)
         setProducts(data)
         setLoading(false)
-    }
+    }*/
 
     useEffect(() => {
         getProductsList()
     }, []);
 
-    useEffect(() => {
+   /* useEffect(() => {
         id != undefined ?
         getProductsListFilter()
         :
         getProductsList()
-    }, [id])
+    }, [id])*/
     
 
 
@@ -77,7 +80,8 @@ function ItemListContainer() {
                                 to={`${pathRoutes.productDetail}/${product.id}`}
                             >
                                 <RoundCard
-                                    product={productInstance.toFirestore(product)}
+                                    //product={productInstance.toFirestore(product)}
+                                    product={product}
                                 />
                             </Link>
                         </List.Item>

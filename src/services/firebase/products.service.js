@@ -27,6 +27,20 @@ class ProductsService {
         return dataList;
     }
 
+   
+    async getProductsNode() {
+        const dataList = [];
+
+        const request = query(collection(db, "Accesorios"));
+
+        const querySnapshot = await getDocs(request);
+        querySnapshot.forEach((doc) => {
+            dataList.push({ id: doc.id, ...doc.data() });
+        })
+
+        return dataList;
+    }
+
     /**
     * Obtener los documentos almacenados en la coleccion de accesorios correspondientes a la categoria seleccionada 
     * @returns Lista de objetos con los productos 

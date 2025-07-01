@@ -1,12 +1,15 @@
-import axiosInstance from '../api/axiosConfig.js';
+import { axiosInstance } from "../../config/axiosConfig";
 
-export const TaskService = {
+
+export default class ProductService {
   async getAll() {
-    const res = await axiosInstance.get('/tasks');
-    return res.data;
-  },
+    const res = await axiosInstance.get('/products');
+    console.log("res", res)
+    return res.data.payload.data;
+  }
+
   async create(data) {
     const res = await axiosInstance.post('/tasks', data);
     return res.data;
   }
-};
+}
