@@ -3,7 +3,6 @@ import { CircularProgress } from "@mui/material";
 import { List } from "antd";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Product } from "../../../models/product";
 import { pathRoutes } from "../../../routes/PathRoutes";
 
 import ProductService from "../../../services/mongo/productService";
@@ -14,7 +13,7 @@ import './ItemListContainer.css';
 function ItemListContainer() {
 
    // const productsService = new ProductsService();
-    const productInstance = new Product();
+   // const productInstance = new Product();
 
     const { id } = useParams();
     console.log(id)
@@ -77,7 +76,7 @@ function ItemListContainer() {
                         <List.Item key={i}>
                             <Link
                                 className="accesories-cards-link"
-                                to={`${pathRoutes.productDetail}/${product.id}`}
+                                to={`${pathRoutes.productDetail}/${product._id}`}
                             >
                                 <RoundCard
                                     //product={productInstance.toFirestore(product)}

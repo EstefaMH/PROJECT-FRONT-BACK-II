@@ -1,19 +1,20 @@
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { CartContext, CartListContext } from '../../../../contexts/Contexts';
-import { pathRoutes } from '../../../../routes/PathRoutes';
-import ProductsService from '../../../../services/firebase/products.service';
+import ProductService from '../../../../services/mongo/productService';
 
 
 function ProductDetailCard() {
-
-    let productsService = new ProductsService();
 
     const {  setCartList } = useContext(CartListContext);
     const {  setCart } = useContext(CartContext);
 
     const { id } = useParams();
-    let navigate = useNavigate();
+    //let navigate = useNavigate();
+
+     //let productsService = new ProductsService();
+    let productService = new ProductService()
+    productService.getById(id)
 
     const [product, setProduct] = useState([]);
     const [quantity, setQuantity] = useState(1);
@@ -24,16 +25,18 @@ function ProductDetailCard() {
 
     async function getProduct() {
         try {
-            const productDoc = await productsService.getProductById(id);
+            //const productDoc = await productService.getProductById(id);
+           const productDoc = await productService.getById(id);
+           console.log(productDoc)
             setProduct(productDoc);
         } catch (error) {
-            alert("Error al obtener el producto: " + error.message);
-            navigate(pathRoutes.products);
+            //alert("Error al obtener el producto: " + error.message);
+            //navigate(pathRoutes.products);
         }
     }
 
     function calculateTotal(qty) {
-        const totalPrice = product.price_out * qty;
+        const totalPrice = product.price * qty;
         return Number.isInteger(totalPrice) ? totalPrice : totalPrice.toFixed(2);
     }
 
@@ -78,22 +81,22 @@ function ProductDetailCard() {
     return (
         <section className="details">
             <section className='section-details-name'>
-                <h1>{product.features}</h1>
+                <h1>{product.title}</h1>
             </section>
             <div className="section-image-tallas">
                 <div className="size description-card">
-                    <h2>Ref. {product.ref} </h2>
+                    <h2>Ref. {product.code} </h2>
                     <div className="description-brand">
-                        <p className="description-brand-title">Marca </p>
-                        <p>{product.brand}</p>
+                        <p className="description-brand-title">Categoria </p>
+                        <p>{product.category}</p>
                     </div>
                     <div className="price">
                         <span className="price-out">$ </span>
-                        <span className="price-out ">{product.price_out}</span>
+                        <span className="price-out ">{product.price}</span>
                     </div>
                 </div>
                 <article className='card-details-img'>
-                    <img src={product.image} alt="Product Image" />
+                    <img src={product.thumbnails} alt="Product Image" />
                 </article>
             </div>
 
@@ -126,7 +129,7 @@ function ProductDetailCard() {
                     <div className="total-price">
                         <h3>Total: </h3>
                         <span className="currency">$</span>
-                        <span className="amount">{calculateTotal(quantity)}</span>
+                        <span className="amount">{ isNaN(calculateTotal(quantity))  ? 0 : calculateTotal(quantity)}</span>
                     </div>
                 </div>
             </div>

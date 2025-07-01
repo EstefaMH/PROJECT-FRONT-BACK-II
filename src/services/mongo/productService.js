@@ -12,4 +12,12 @@ export default class ProductService {
     const res = await axiosInstance.post('/tasks', data);
     return res.data;
   }
+
+  async getById(id) {
+    const res = await axiosInstance.get(`/products/${id}`);
+    console.log("res", res.data)
+    return res.data;
+  }
+
+
 }
